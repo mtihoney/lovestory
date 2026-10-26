@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>For You</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <!-- Lock screen -->
+  <main id="lock" class="lock">
+    <form id="lockForm" class="lock-card" autocomplete="off">
+      <div class="heart" aria-hidden="true">&#10084;</div>
+      <h1 id="lockTitle">For You</h1>
+      <p class="muted">Enter our secret passcode</p>
+      <label class="sr-only" for="code">Passcode</label>
+      <input id="code" type="password" inputmode="text" autocomplete="off" placeholder="Passcode" autofocus>
+      <button type="submit">Unlock</button>
+      <p id="lockMsg" class="lock-msg" role="alert"></p>
+      <p id="lockHint" class="muted small"></p>
+    </form>
+  </main>
+
+  <!-- The site (shown after unlocking) -->
+  <div id="site" hidden>
+    <header class="topbar">
+      <span class="brand" aria-hidden="true">&#10084;</span>
+      <nav id="nav" aria-label="Main">
+        <button data-tab="home" class="active">Home</button>
+        <button data-tab="music">Music</button>
+        <button data-tab="gallery">Gallery</button>
+        <button data-tab="notes">Notes</button>
+      </nav>
+      <button id="lockBtn" class="lock-again" title="Lock" aria-label="Lock the site">&#128274;</button>
+    </header>
+
+    <main>
+      <section id="tab-home" class="tab">
+        <article class="letter" id="letter"></article>
+      </section>
+
+      <section id="tab-music" class="tab" hidden>
+        <h2>Our Songs</h2>
+        <p class="muted">Press play. The music keeps going while you look around.</p>
+        <div id="songs" class="songs"></div>
+      </section>
+
+      <section id="tab-gallery" class="tab" hidden>
+        <h2>Gallery</h2>
+        <div class="subtabs" id="subtabs" role="tablist">
+          <button data-sub="photos" class="active" role="tab">Us together</button>
+          <button data-sub="her" role="tab">Her videos</button>
+          <button data-sub="me" role="tab">My videos</button>
+        </div>
+        <div id="sub-photos" class="grid"></div>
+        <div id="sub-her" class="vgrid" hidden></div>
+        <div id="sub-me" class="vgrid" hidden></div>
+      </section>
+
+      <section id="tab-notes" class="tab notes-tab" hidden>
+        <h2>A little note for you</h2>
+        <p class="muted">Tap the button.</p>
+        <div id="noteCard" class="note-card" aria-live="polite">&#10084;</div>
+        <button id="noteBtn" class="primary">Open a note</button>
+      </section>
+    </main>
+  </div>
+
+  <!-- Photo viewer -->
+  <div id="lightbox" class="lightbox" hidden>
+    <button id="lbClose" aria-label="Close">&times;</button>
+    <img id="lbImg" alt="">
+    <p id="lbCap"></p>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
